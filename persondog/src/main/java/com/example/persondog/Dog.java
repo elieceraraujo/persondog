@@ -1,12 +1,12 @@
 package com.example.persondog;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne; // Asegúrate de importar esto
+import jakarta.persistence.FetchType; // Asegúrate de importar esto
+import jakarta.persistence.JoinColumn; // Opcional, para renombrar la columna
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -22,5 +22,8 @@ public class Dog {
     private String name;
     private String breed;
     private int age;
-
+    @JsonIgnore
+    @ManyToOne(fetch  = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
+    private Person person;
 }
