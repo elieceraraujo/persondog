@@ -1,12 +1,12 @@
 package com.example.persondog;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.UUID;
+
 
 @Entity
 @Data
@@ -21,5 +21,12 @@ public class Person {
     private String id;
     private String name;
     private int age;
+
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "PERSON_DOGS",
+            joinColumns = @JoinColumn(name = "PERSON_ID"),
+            inverseJoinColumns = @JoinColumn(name = "DOG_ID"))
+    private List<Dog> dogs;
 
 }

@@ -1,0 +1,8 @@
+2026-10-27 09:44:34.931307+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM PERSON_DOGS PERSON [*]DOG"
+Syntax error in SQL statement "SELECT * FROM PERSON_DOGS PERSON [*]DOG"; SQL statement:
+SELECT * FROM PERSON_DOGS PERSON DOG [42000-240]
+2026-10-27 10:08:19.118654+01:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * [*]FROMDOG  PERSON_DOGS"
+Syntax error in SQL statement "SELECT * [*]FROMDOG  PERSON_DOGS"; SQL statement:
+SELECT * FROMDOG  PERSON_DOGS [42000-240]
