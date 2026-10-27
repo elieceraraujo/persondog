@@ -1,18 +1,15 @@
 package com.example.persondog;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @ToString
 @EqualsAndHashCode
 public class Dog {
@@ -22,5 +19,8 @@ public class Dog {
     private String name;
     private String breed;
     private int age;
+
+    @OneToMany(mappedBy = "dog", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Custody> custodies;
 
 }
